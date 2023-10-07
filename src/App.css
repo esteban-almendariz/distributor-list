@@ -1,0 +1,39 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: 'Poltawski Nowy', serif;
+  font-family: 'Roboto', sans-serif;
+  max-width: 1800px;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 200px;
+  gap: 20px;
+}
+
+.list-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 15px;
+  background-color: rgb(9,138,0);
+  background-color: #7e39ff;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.customer-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 20px;
+  
+}
+
