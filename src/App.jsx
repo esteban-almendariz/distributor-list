@@ -29,35 +29,23 @@ const auth = getAuth(app)
 
 
   // Firebase
-// const authCreateAccountWithEmail = () => {
-//     const email = credentials.email
-//     const password = credentials.password 
+const authCreateAccountWithEmail = () => {
+    const email = credentials.email
+    const password = credentials.password 
     
-//     createUserWithEmailAndPassword(auth,email, password)
-//       .then((userCredential) => {
-//         // Signed up 
-//         console.log('logged In')
-//         // ...
-//       })
-//       .catch((error) => {
-//         console.log(error.message)
-//         // ..
-//       });
-//     }
+    createUserWithEmailAndPassword(auth,email, password)
+      .then((userCredential) => {
+        // Signed up 
+        console.log('logged In')
+        // ...
+      })
+      .catch((error) => {
+        console.log(error.message)
+        // ..
+      });
+    }
 
 
-    const authCreateAccountWithEmail = async (e) => {
-      e.preventDefault();
-      const email = credentials.email
-      const password = credentials.password 
-  
-      try {
-        await auth.createUserWithEmailAndPassword(email, password);
-        console.log('User registered successfully');
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
 
 
   const [email, setEmail] = useState('');
