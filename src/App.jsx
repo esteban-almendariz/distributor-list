@@ -94,7 +94,14 @@ const authCreateAccountWithEmail = () => {
           </div>
       </form>
       <div id='logged-in-view'>
-        <h1>Distributor List</h1>
+            <h1>Distributor List</h1>
+              <div>
+                <label>
+                    Search <input type="text" placeholder='Distributor #' />
+                </label>
+                
+              </div>
+
               <div>
                 <div className='list-title'>
                   <span>Distributor Number</span>
