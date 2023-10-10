@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"
+import { getAuth, GoogleAuthProvider } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -8,11 +8,13 @@ const firebaseConfig = {
   authDomain: "distributors-list-c8d3f.firebaseapp.com",
   projectId: "distributors-list-c8d3f",
   storageBucket: "distributors-list-c8d3f.appspot.com",
- 
-};
+  messagingSenderId: "726277814057",
+  appId: "1:726277814057:web:0e36bbb6ba4e6a12722938"
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
+export const auth = getAuth(app)
+export const googleProvider = new GoogleAuthProvider()
 
 console.log(auth)
