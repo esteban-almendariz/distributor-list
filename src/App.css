@@ -16,6 +16,10 @@
   gap: 20px;
 }
 
+.img-profile {
+  width: 150px;
+}
+
 .list-title {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
