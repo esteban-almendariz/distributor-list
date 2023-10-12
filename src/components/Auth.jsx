@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword,
          signOut,
          onAuthStateChanged
         } from "firebase/auth"
-
+import {getFirestore} from 'firebase/firestore'
 
 const Auth = (props) => {
     
@@ -84,7 +84,6 @@ const Auth = (props) => {
             console.log(error.message)
       } }
 
-      console.log(`Logged In? ${props.userLoggedIn} AUTH`)
 
       useEffect(() => {
     
@@ -106,11 +105,14 @@ const Auth = (props) => {
     return (
         <div>
           {props.userLoggedIn && 
-          <div>  
-             <button onClick={authSignOut}>Logout</button>
-             <img className="img-profile" src={signInWithGoogle ? auth.currentUser.photoURL
-             : defaultProfileUrl} alt="" />
-          </div>}
+          <nav className="nav-loggedIn">  
+             <p className="logo">SIMPLER</p>
+             <div className="logout-container">
+                <img className="profile-img" src={signInWithGoogle ? auth.currentUser.photoURL
+                : defaultProfileUrl} alt="" />
+                <button className="btn-logout" onClick={authSignOut}>Logout</button>
+             </div> 
+          </nav>}
             
            {!props.userLoggedIn && 
            <div>

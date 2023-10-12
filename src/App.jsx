@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Auth from './components/auth'
 import Nav from './components/Nav'
+import { collection, addDoc } from "firebase/firestore"; 
 import './App.css'
 
 
@@ -14,7 +15,18 @@ function App() {
 
   const handleUserLoggedIn = () => setIsUserLoggedIn(prevState => !prevState)
 
-
+  const addCustomer = async() => {
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
 
   return (
     <>
@@ -22,12 +34,25 @@ function App() {
        <Auth switchLogIn={handleUserLoggedIn} 
               userLoggedIn={isUserLoggedIn}
       />
-      {isUserLoggedIn && <div className='logged-in-view'>
-            <h1>Distributor List</h1>
+      {isUserLoggedIn && 
+      <div className='logged-in-view'>
+              <h1 className='dist-title'>Distributor List</h1>
               <div>
-                <label>
-                    Search <input type="text" placeholder='Distributor #' />
-                </label>
+                  <label>
+                      Search <input type="text" placeholder='Distributor #' />
+                  </label>
+                  <div>
+                  <label>
+                      Distributor # <input type="text" placeholder='Distributor #' />
+                  </label>
+                  <label>
+                      Distributor Name <input type="text" placeholder='Distributor Name' />
+                  </label>
+                  <label>
+                      Contact <input type="text" placeholder='Phone #' />
+                  </label>
+                  <button>Create</button>
+              </div>
                 
               </div>
 
