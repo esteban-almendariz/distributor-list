@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Auth from './components/auth'
 import Nav from './components/Nav'
+import AddNewCust from './components/AddNewCust';
 import { collection, addDoc } from "firebase/firestore"; 
 import './App.css'
 
@@ -37,24 +38,7 @@ function App() {
       {isUserLoggedIn && 
       <div className='logged-in-view'>
               <h1 className='dist-title'>Distributor List</h1>
-              <div>
-                  <label>
-                      Search <input type="text" placeholder='Distributor #' />
-                  </label>
-                  <div>
-                  <label>
-                      Distributor # <input type="text" placeholder='Distributor #' />
-                  </label>
-                  <label>
-                      Distributor Name <input type="text" placeholder='Distributor Name' />
-                  </label>
-                  <label>
-                      Contact <input type="text" placeholder='Phone #' />
-                  </label>
-                  <button>Create</button>
-              </div>
-                
-              </div>
+              <AddNewCust />
 
               <div>
                 <div className='list-title'>
