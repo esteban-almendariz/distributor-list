@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import {BrowserRouter, Switch, Routes} from 'react-router-dom'
+
 import Auth from './components/auth'
-import Nav from './components/Nav'
+import Nav from './components/Navbar'
 import AddNewCust from './components/AddNewCust';
 import { collection, addDoc } from "firebase/firestore"; 
 import './App.css'

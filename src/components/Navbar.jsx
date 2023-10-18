@@ -1,6 +1,6 @@
 
 
-const Nav = (props) => {
+const Navbar = (props) => {
 
     return (
         <nav>
@@ -9,4 +9,4 @@ const Nav = (props) => {
     )
 }
 
-export default Nav
+export default Navbar
