@@ -117,25 +117,30 @@ const Auth = (props) => {
            {!props.userLoggedIn && 
            <div>
                 <h1>Distributors List</h1>
-                <div className='sign-in-form'>
-                
-                <button onClick={authSignInWithGoogle}>Sign in with Google</button>
-                
-                <input type="email" 
-                        name="email" 
-                        placeholder='Email'
-                        value={credentials.email}
-                        onChange={handleFormChange}
-                        />
-                <input type="password" 
-                    name="password" 
-                    placeholder='Password'
-                    value={credentials.password}
-                    onChange={handleFormChange}
-                    />
+                <div className='form-sign-in'>
+                        <button onClick={authSignInWithGoogle}>Sign in with Google</button>
+                        
+                        <label htmlFor="email">Email:</label>
+                        <input 
+                                id="email"
+                                type="email" 
+                                name="email" 
+                                placeholder='Email'
+                                value={credentials.email}
+                                onChange={handleFormChange}
+                                />
+                        <label htmlFor="password">Password:</label>
+                        <input 
+                            id="password"
+                            type="password" 
+                            name="password" 
+                            placeholder='Password'
+                            value={credentials.password}
+                            onChange={handleFormChange}
+                            />
 
-                <button className='sign-in-btn' onClick={authSignInWithEmailandPassword}>Sign in</button>
-                <button className='create-account-btn' onClick={handleSubmit}>Create Account</button>
+                        <button className='sign-in-btn' onClick={authSignInWithEmailandPassword}>Sign in</button>
+                        <button className='create-account-btn' onClick={handleSubmit}>Create Account</button>
                 </div>
            </div>}
            

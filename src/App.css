@@ -12,12 +12,16 @@ body {
   margin: 0;
 }
 
-.sign-in-form {
+.form-sign-in {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   width: 200px;
   gap: 20px;
+}
+
+.form-sign-in label {
+  display: inline;
 }
 
 .nav-loggedIn {
