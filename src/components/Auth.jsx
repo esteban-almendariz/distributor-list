@@ -114,27 +114,27 @@ const Auth = (props) => {
              </div> 
           </nav>}
             
-           {!props.userLoggedIn && 
+           {/* {!props.userLoggedIn && 
            <div>
                 <h1>Distributors List</h1>
                 <div className='form-sign-in'>
                         <button onClick={authSignInWithGoogle}>Sign in with Google</button>
                         
-                        <label htmlFor="email">Email:</label>
+                        <label htmlFor="email">email:</label>
                         <input 
                                 id="email"
                                 type="email" 
                                 name="email" 
-                                placeholder='Email'
+                                placeholder='email'
                                 value={credentials.email}
                                 onChange={handleFormChange}
                                 />
-                        <label htmlFor="password">Password:</label>
+                        <label htmlFor="password">password:</label>
                         <input 
                             id="password"
                             type="password" 
                             name="password" 
-                            placeholder='Password'
+                            placeholder='password'
                             value={credentials.password}
                             onChange={handleFormChange}
                             />
@@ -142,7 +142,7 @@ const Auth = (props) => {
                         <button className='sign-in-btn' onClick={authSignInWithEmailandPassword}>Sign in</button>
                         <button className='create-account-btn' onClick={handleSubmit}>Create Account</button>
                 </div>
-           </div>}
+           </div>} */}
            
       </div>
     )

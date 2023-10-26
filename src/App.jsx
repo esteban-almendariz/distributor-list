@@ -45,9 +45,9 @@ function App() {
         </Routes>
       </BrowserRouter>
       
-       <Auth switchLogIn={handleUserLoggedIn} 
+       {/* <Auth switchLogIn={handleUserLoggedIn} 
               userLoggedIn={isUserLoggedIn}
-      />
+       /> */}
       {isUserLoggedIn && 
       <div className='logged-in-view'>
               <h1 className='dist-title'>Distributor List</h1>

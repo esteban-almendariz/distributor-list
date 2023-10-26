@@ -17,11 +17,12 @@ body {
   flex-direction: column;
   margin: 0 auto;
   width: 200px;
-  gap: 20px;
 }
 
-.form-sign-in label {
-  display: inline;
+
+
+.form-sign-in button, input{
+  margin-bottom: 20px;
 }
 
 .nav-loggedIn {
