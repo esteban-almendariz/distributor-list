@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
+import './Signup.css'
 
 const Signup = () => {
 
@@ -33,13 +34,12 @@ const Signup = () => {
 
     return (
         <div>
-            <h1>Signup</h1>
             <div>
-                <h1>Distributors List</h1>
+                <h1>Signup</h1>
                 <form onSubmit={handleSubmit} className='form-sign-in'>
                         {/* <button onClick={authSignInWithGoogle}>Sign in with Google</button> */}
                         
-                        <label htmlFor="email">email:</label>
+                        
                         <input 
                                 id="email"
                                 type="email" 
@@ -48,7 +48,7 @@ const Signup = () => {
                                 value={credentials.email}
                                 onChange={handleFormChange}
                                 />
-                        <label htmlFor="password">password:</label>
+                        
                         <input 
                             id="password"
                             type="password" 

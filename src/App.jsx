@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useAuthContext } from './hooks/useAuthContext'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -16,8 +17,12 @@ import './App.css'
 function App() {
 
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const { authIsReady, user} = useAuthContext()
+  
 
   console.log(`USER Logged In? ${isUserLoggedIn} from APP`)
+
+ 
 
   const handleUserLoggedIn = () => setIsUserLoggedIn(prevState => !prevState)
 
@@ -36,14 +41,18 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route exact path='/' element={ <Home />}/>
-          <Route exact path='/login' element={ <Login />}/>
-          <Route exact path='/signup' element={ <Signup />}/>    
-        </Routes>
-      </BrowserRouter>
+      {authIsReady && (
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route exact path='/' element={ <Home />}/>
+                <Route  path='/login' element={ <Login />}/>
+                <Route  path='/signup' element={ <Signup />}/>  
+                  
+              </Routes>
+          </BrowserRouter>
+      )}
+      
       
        {/* <Auth switchLogIn={handleUserLoggedIn} 
               userLoggedIn={isUserLoggedIn}
