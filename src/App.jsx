@@ -7,7 +7,7 @@ import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import Auth from './components/auth'
 import Nav from './components/Navbar'
-import AddNewCust from './components/AddNewCust';
+import AddNewCust from './components/AddNewCustomer';
 import { collection, addDoc } from "firebase/firestore"; 
 import './App.css'
 
