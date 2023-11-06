@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import { useFirestore } from '../hooks/useFirestore'
 import './AddNewCustomer.css'
 
 const AddNewCustomer = () => { 
@@ -8,11 +9,11 @@ const AddNewCustomer = () => {
         distName: '',
         distPhoneNumber: ''
     })
+    const { addDocument, response } = useFirestore('transaction')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(newCustomer)
-        console.log('click')
+        addDocument(newCustomer)
     } 
 
     const handleFormChange = (e) => {
