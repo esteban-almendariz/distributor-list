@@ -1,6 +1,7 @@
 import { useReducer, useEffect, useState } from "react";
-import { auth } from "../config/firebase";
+import { collection, addDoc} from "firebase/firestore"
 import { async } from "@firebase/util";
+import { db } from "../config/firebase";
 
 let initialState = {
     document: null,
@@ -22,16 +23,16 @@ const firestoreReducer = (state, action) => {
     }
 }
 
-export const useFirestore = (collection) => {
+export const useFirestore = (doc) => {
     const [response, dispatch] = useReducer(firestoreReducer, initialState)
     
-    const ref = auth.collection(collection)
 
+    //add a document
     const addDocument = async (doc) => {
         dispatch({ type: 'IS_PENDING'})
 
         try {
-            const addedDocument = await ref.add(doc)
+            const addedDocument = await addDoc(collection(db , ...doc))
             dispatch({type: 'ADDED_DOCUMENT', payload: addedDocument})
         }
         catch (error) {
