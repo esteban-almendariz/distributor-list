@@ -1,11 +1,12 @@
 import AddNewCustomer from "../components/AddNewCustomer"
-
+import { useAuthContext } from "../hooks/useAuthContext"
 
 
 const Home = () => {
+    const { user } = useAuthContext()
     return (
         <>
-        <AddNewCustomer />
+        <AddNewCustomer uid={user.uid}/>
         <div className='logged-in-view'>
               <h1 className='dist-title'>Distributor List</h1>
               <div>

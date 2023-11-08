@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { useFirestore } from '../hooks/useFirestore'
 import './AddNewCustomer.css'
 
-const AddNewCustomer = () => { 
+const AddNewCustomer = ({ uid }) => { 
     const [newCustomer, setNewCustomer] = useState({
         distNumber: '',
         distName: '',
-        distPhoneNumber: ''
+        distPhoneNumber: '',
+        uid: uid
     })
     const { addDocument, response } = useFirestore('transaction')
 

@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useState } from "react";
 import { collection, addDoc} from "firebase/firestore"
-import { async } from "@firebase/util";
+// import { async } from "@firebase/util";
 import { db } from "../config/firebase";
 
 let initialState = {
