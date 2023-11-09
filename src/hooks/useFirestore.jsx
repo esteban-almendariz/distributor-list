@@ -23,16 +23,17 @@ const firestoreReducer = (state, action) => {
     }
 }
 
-export const useFirestore = (doc) => {
+export const useFirestore = (collectionType) => {
     const [response, dispatch] = useReducer(firestoreReducer, initialState)
     
+    const ref = collection(db, collectionType)
 
     //add a document
     const addDocument = async (doc) => {
         dispatch({ type: 'IS_PENDING'})
 
         try {
-            const addedDocument = await addDoc(collection(db , ...doc))
+            const addedDocument = await addDoc(ref, doc)
             dispatch({type: 'ADDED_DOCUMENT', payload: addedDocument})
         }
         catch (error) {

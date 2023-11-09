@@ -1,9 +1,12 @@
 import AddNewCustomer from "../components/AddNewCustomer"
 import { useAuthContext } from "../hooks/useAuthContext"
-
+import { useCollection } from "../hooks/useCollection"
+import DistributorList from "./DistributorList"
 
 const Home = () => {
     const { user } = useAuthContext()
+    const { documents, error} = useCollection('transaction')
+
     return (
         <>
         <AddNewCustomer uid={user.uid}/>
@@ -37,6 +40,8 @@ const Home = () => {
                 </div>
               </div>
         </div>
+        {error && <p>{error}</p>}
+        {documents && <DistributorList distributors= {documents}/>}
         </>
     )
 }

@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFirestore } from '../hooks/useFirestore'
 import './AddNewCustomer.css'
 
@@ -17,6 +17,17 @@ const AddNewCustomer = ({ uid }) => {
         addDocument(newCustomer)
     } 
 
+    useEffect(() => {
+        if(response.success) {
+            setNewCustomer({
+                distNumber: '',
+                distName: '',
+                distPhoneNumber: '',
+                uid: uid
+            })
+        }
+    }, [response.success])
+
     const handleFormChange = (e) => {
         const { name, value} = e.target
         setNewCustomer(prevState => {
@@ -25,10 +36,7 @@ const AddNewCustomer = ({ uid }) => {
                 [name]: value
             }
         })
-        console.log(newCustomer)
     }
-
-    console.log('form Submitted:', newCustomer)
 
     return(
             <form onSubmit={handleSubmit} className='new-cust-container'>
