@@ -18,9 +18,6 @@ function App() {
 
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const { authIsReady, user} = useAuthContext()
-  
-
-  console.log(`USER Logged In? ${isUserLoggedIn} from APP`)
 
  
 
