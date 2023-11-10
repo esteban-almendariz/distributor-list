@@ -1,7 +1,7 @@
 import AddNewCustomer from "../components/AddNewCustomer"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useCollection } from "../hooks/useCollection"
-import DistributorList from "./DistributorList"
+import DistributorList from "../components/DistributorList"
 
 const Home = () => {
     const { user } = useAuthContext()
