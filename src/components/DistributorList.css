@@ -1,0 +1,17 @@
+.dist-edit-container {
+    display: inline;
+    position: absolute;
+    right: 60px;
+    bottom: 15px;
+}
+
+.dist-edit-container button {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.dist-edit-container img {
+    width: 20px;
+    filter: invert(28%) sepia(96%) saturate(4252%) hue-rotate(253deg) brightness(99%) contrast(104%);
+  
+}
