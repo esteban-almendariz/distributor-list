@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     margin: 70px;
+    margin-top: 0;
 }
 
 .new-cust-container label, input {
@@ -9,11 +10,25 @@
 }
 
 .new-cust-container input {
-    padding: 6px;
+    padding: 7px;
 }
 
 .new-cust-container button {
     height: 31px;
     width: 75px;
     margin: auto 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    position: relative;
+}
+
+.search-container button {
+    position: absolute;
+    top: 20px;
+    right: 570px;
+
 }
