@@ -1,8 +1,7 @@
 .new-cust-container {
     display: flex;
     justify-content: center;
-    margin: 70px;
-    margin-top: 0;
+    margin-bottom: 70px;
 }
 
 .new-cust-container label, input {
@@ -22,13 +21,14 @@
 .search-container {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
+    align-items: center;
+    margin: 70px 0 20px;
+
     position: relative;
 }
 
 .search-container button {
-    position: absolute;
-    top: 20px;
-    right: 570px;
-
+    margin-left: 20px;
+    height: 31px;
+    width: 75px;
 }
