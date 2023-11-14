@@ -13,8 +13,12 @@
 
 .navbar a{
     text-decoration: none;
-    color: black;
     margin-left: 16px;
+    border-radius: 16px;
+    padding: 6px 13px;
+    color: white;
+    border: 2px solid #7e39ff;
+    cursor: pointer;
 }
 
 .navbar li {
@@ -24,4 +28,24 @@
 .navbar-logo {
     margin-right: auto;
     font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    letter-spacing: 2px;
 }
+
+.navbar-link {
+    border-radius: 16px;
+    padding: 6px 13px;
+    color: white;
+    border: 2px solid #7e39ff;
+    cursor: pointer;
+}
+
+.navbar-link :hover {
+    color: white;
+    background-color: #7e39ff;
+    border: 2px solid white;
+}
+
+
+

@@ -23,21 +23,6 @@ const Home = () => {
                   <span>IBS Miami & Florida Keys</span>
                   <span>888-888-8888</span>
                 </div>
-                <div className='customer-detail'>
-                  <span>4782</span>
-                  <span>IBS Florida Space Coast</span>
-                  <span>888-888-8888</span>
-                </div>
-                <div className='customer-detail'>
-                  <span>4782</span>
-                  <span>IBS Florida Space Coast</span>
-                  <span>888-888-8888</span>
-                </div>
-                <div className='customer-detail'>
-                  <span>4782</span>
-                  <span>IBS Florida Space Coast</span>
-                  <span>888-888-8888</span>
-                </div>
               </div>
         </div>
         {error && <p>{error}</p>}

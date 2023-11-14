@@ -33,13 +33,11 @@ const Signup = () => {
       }
 
     return (
-        <div>
-            <div>
-                <h1>Signup</h1>
-                <form onSubmit={handleSubmit} className='form-sign-in'>
+        <div className="form-container">
+            <div className="login-form">
+                <form onSubmit={handleSubmit}>
                         {/* <button onClick={authSignInWithGoogle}>Sign in with Google</button> */}
-                        
-                        
+                        <h1>Signup</h1>
                         <input 
                                 id="email"
                                 type="email" 
@@ -48,7 +46,6 @@ const Signup = () => {
                                 value={credentials.email}
                                 onChange={handleFormChange}
                                 />
-                        
                         <input 
                             id="password"
                             type="password" 
@@ -59,8 +56,6 @@ const Signup = () => {
                             />
                         <button>{isPending ? 'Loading' : 'Create Account'}</button>
                         {<p>{error}</p>}
-                        {/* <button className='sign-in-btn' onClick={authSignInWithEmailandPassword}>Sign in</button>
-                        <button className='create-account-btn' onClick={handleSubmit}>Create Account</button> */}
                 </form>
            </div>
         </div>

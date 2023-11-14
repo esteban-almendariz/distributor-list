@@ -1,8 +1,6 @@
 #root {
   /* max-width: 1280px; */
   margin: 0 auto;
-  
-  
   font-family: 'Poltawski Nowy', serif;
   font-family: 'Roboto', sans-serif;
   max-width: 1800px;
@@ -12,17 +10,21 @@ body {
   margin: 0;
 }
 
-.form-sign-in {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 200px;
+button {
+  border-radius: 16px;
+  padding: 6px 13px;
+  color: #7e39ff;
+  border: 2px solid #7e39ff;
+  cursor: pointer;
+  font-family: 'Poltawski Nowy', serif;
+  font-family: 'Roboto', sans-serif;
 }
 
+button:hover {
+  color: white;
+  background-color: #7e39ff;
+  border: 2px solid white;
 
-
-.form-sign-in button, input{
-  margin-bottom: 20px;
 }
 
 .nav-loggedIn {
@@ -79,7 +81,7 @@ body {
   background-color: #7e39ff;
   color: white;
   padding: 10px;
-  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 .customer-detail {

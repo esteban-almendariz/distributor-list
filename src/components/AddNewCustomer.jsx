@@ -10,6 +10,8 @@ const AddNewCustomer = ({ uid }) => {
         distPhoneNumber: '',
         uid: uid
     })
+    const [searchDist, setSearchDist] = useState('')
+
     const { addDocument, response } = useFirestore('transaction')
 
     const handleSubmit = (e) => {
@@ -38,13 +40,21 @@ const AddNewCustomer = ({ uid }) => {
         })
     }
 
+    const handleSearchDist = (e) => {
+        setSearchDist(e.target.value)
+    }
+
+    console.log(searchDist)
+
     return(
             <form onSubmit={handleSubmit} className='new-cust-container'>
                   <label> Search
                        <input 
                             type="text" 
                             placeholder='Distributor #' 
-                            
+                            value={searchDist}
+                            name='searchDist'
+                            onChange={handleSearchDist}
                         />
                   </label>
                   <label> Distributor # 
@@ -54,6 +64,7 @@ const AddNewCustomer = ({ uid }) => {
                             value={newCustomer.distNumber}
                             onChange={handleFormChange}
                             name='distNumber'
+                            required
                             />
                   </label>
                   <label> Distributor Name 
@@ -63,6 +74,7 @@ const AddNewCustomer = ({ uid }) => {
                             value={newCustomer.distName}
                             onChange={handleFormChange}
                             name='distName'
+                            required
                             />
                   </label>
                   <label> Contact 
@@ -72,6 +84,7 @@ const AddNewCustomer = ({ uid }) => {
                             value={newCustomer.distPhoneNumber}
                             onChange={handleFormChange}
                             name='distPhoneNumber'
+                            required
                             />
                   </label>
                   <button>Create</button>

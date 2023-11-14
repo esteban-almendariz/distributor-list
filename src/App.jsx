@@ -53,7 +53,7 @@ function App() {
        {/* <Auth switchLogIn={handleUserLoggedIn} 
               userLoggedIn={isUserLoggedIn}
        /> */}
-      {isUserLoggedIn && 
+      {/* {isUserLoggedIn && 
       <div className='logged-in-view'>
               <h1 className='dist-title'>Distributor List</h1>
               <AddNewCust />
@@ -85,7 +85,7 @@ function App() {
                   <span>888-888-8888</span>
                 </div>
               </div>
-      </div>}
+      </div>} */}
       
     </>
   )

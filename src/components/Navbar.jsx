@@ -12,11 +12,11 @@ const Navbar = () => {
     return (
         <nav className='navbar'>
             <ul>
-                <li className='navbar-logo'>My Logo</li>
+                <li className='navbar-logo'>Simpler</li>
                 {!user && (
                     <>
-                    <li><Link to='/login'>Login</Link></li>
-                    <li><Link to='/signup'>Signup</Link></li>
+                    <li className='navbar-link'><Link to='/login'>Login</Link></li>
+                    <li className='navbar-link'><Link to='/signup'>Signup</Link></li>
                 </>
                 )}
                 {user && <button onClick={logout}>Logout</button>}

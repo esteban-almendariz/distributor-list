@@ -1,42 +1,60 @@
 import { useFirestore } from '../hooks/useFirestore'
-import { deleteDoc, doc } from 'firebase/firestore'
+import { deleteDoc, doc, query, orderBy, collection } from 'firebase/firestore'
 import { db } from '../config/firebase'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-// import { trashImg } from '../../../public/trash-can.svg'
 import './DistributorList.css'
-import { icon } from '@fortawesome/fontawesome-svg-core'
+
 
 const DistributorList = ({ distributors }) => {
     const { deleteDocument, response } = useFirestore('transaction')
+
+    const distRef = collection(db, 'transaction')
+    const q = query(distRef, orderBy('distNumber'))
+    
+    console.log(distributors)
 
     const deleteDocu = async(id) => {
         const docRef = doc(db, 'transaction', id)
         await deleteDoc(docRef)
     }
+
+    const editClickHandle = ()=> {
+        console.log('edit clicked')
+    }
     console.log(response.error)
+
+    const listDistributors = distributors.map(distributor => (     
+        <div key={distributor.id} className='customer-detail'>
+            <span>{distributor.distNumber}</span>
+            <span>{distributor.distName}</span>
+            <span>{distributor.distPhoneNumber} 
+                <div className='dist-edit-container'>
+                    <img onClick={editClickHandle} src="../../../public/pen-to-square.svg" alt="" />
+                    <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
+                </div>
+            </span> 
+        </div>
+))
+
     return (
          <div>
             {response.error}
-            {distributors.map(distributor => (
-                
+            {listDistributors.sort((a, b) => a.distNumber - b.distNumber)}
+
+            {/* {distributors.map(distributor => (
+                    
                     <div key={distributor.id} className='customer-detail'>
                         <span>{distributor.distNumber}</span>
                         <span>{distributor.distName}</span>
                         <span>{distributor.distPhoneNumber} 
                             <div className='dist-edit-container'>
-                                <button>
-                                    <img src="../../../public/pen-to-square.svg" alt="" />
-                                </button>
-                                <button onClick={() => deleteDocu(distributor.id)}>
-                                   <img className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
-                                </button>
-                                
+                                <img onClick={editClickHandle} src="../../../public/pen-to-square.svg" alt="" />
+                                <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
                             </div>
-                        </span>
-                        
-                        
+                        </span> 
                     </div>
-            ))}
+            ))} */}
+
          </div>
     )
 } 
