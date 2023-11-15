@@ -8,6 +8,7 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
         distNumber: '',
         distName: '',
         distPhoneNumber: '',
+        notes: '',
         uid: uid
     })
     const [searchDist, setSearchDist] = useState('')
@@ -25,6 +26,7 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
                 distNumber: '',
                 distName: '',
                 distPhoneNumber: '',
+                notes: '',
                 uid: uid
             })
         }
@@ -48,8 +50,6 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
         displaySearch(searchDist)
         setSearchDist('')
     }
-
-    console.log(searchDist)
 
     return( 
             <div>

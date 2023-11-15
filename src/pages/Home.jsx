@@ -46,8 +46,8 @@ const Home = () => {
                   <span>Contact</span>
                 </div>
                 
-                 {/* TESTING ACCORDIAN CSS */}
-                  <details className="accordian-container">
+                 
+                  {/* <details className="accordian-container">
                     <summary className="accordian">
                         <span>4581</span>
                         <span>IBS Miami & Florida Keys</span>
@@ -77,7 +77,7 @@ const Home = () => {
 
                         />
                     </div>
-                  </details>
+                  </details> */}
                 
               </div>
         </div>
