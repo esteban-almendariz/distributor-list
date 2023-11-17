@@ -21,14 +21,12 @@ export const useSignup = () => {
 
             dispatch({ type: 'LOGIN', payload: auth.currentUser})
 
-            isPending(false)
             setError(null)
             
         }
         catch (error) {
             console.log(error.message)
             setError(error.message)
-            setIsPending(false)
         }
     }
 

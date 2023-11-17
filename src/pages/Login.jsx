@@ -5,7 +5,7 @@ import './Login.css'
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const {login, isPending, error} = useLogin()
+    const {login, error} = useLogin()
     
 
     const handleSubmit = (e) => {

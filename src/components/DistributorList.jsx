@@ -1,16 +1,40 @@
 import { useFirestore } from '../hooks/useFirestore'
-import { deleteDoc, doc, query, orderBy, collection } from 'firebase/firestore'
+import { useState, useEffect } from 'react'
+import { deleteDoc, doc, query, orderBy, collection, arrayUnion, updateDoc, onSnapshot } from 'firebase/firestore'
 import { db } from '../config/firebase'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './DistributorList.css'
-import { useState } from 'react'
 
 
 const DistributorList = ({ distributors }) => {
-    const { deleteDocument, response } = useFirestore('transaction')
+    
     const [notes, setNotes] = useState('')
 
     const sortDistributors = distributors.sort((a, b) => a.distNumber - b.distNumber)
+
+    useEffect(() => {
+        const unsubscribe = onSnapshot(collection(db, 'transaction'), (snapshot) => {
+          const notesData = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setNotes(notesData);
+        });
+    
+        return () => unsubscribe();
+      }, []);
+
+    const editNotes = async(note, id) => {
+        const docRef = doc(db, 'transaction', id)
+
+        try {
+            await updateDoc(docRef, {
+            notes: arrayUnion(note)})
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
     
     const handleNotesChange = (e) => {
         e.preventDefault()
@@ -24,10 +48,15 @@ const DistributorList = ({ distributors }) => {
         await deleteDoc(docRef)
     }
 
-    const editClickHandle = ()=> {
-        console.log('edit clicked')
+    const editClickHandle = (id)=> {
+        console.log('edit clicked', id)
+        editNotes(notes, id)
     }
-    console.log(response.error)
+
+    const editClick = (id) => {
+        console.log(id)
+    }
+    
 
     const listDistributors = sortDistributors.map(distributor => (     
         <details key={distributor.id} className="accordian-container">
@@ -36,15 +65,15 @@ const DistributorList = ({ distributors }) => {
                         <span>{distributor.distName}</span>
                         <span>{distributor.distPhoneNumber}
                             <div className='dist-edit-container'>
-                                <img onClick={editClickHandle} src="../../../public/pen-to-square.svg" alt="" />
+                                <img onClick={() => editClickHandle(distributor.id)} src="../../../public/pen-to-square.svg" alt="" />
                                 <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
                             </div>
                         </span>
                     </summary>
                     <div className="textarea-container">
-                        <textarea 
+                        <textarea onClick={() => editClick(distributor.id)}
                             placeholder='Add notes... IP address...'
-                            value={notes}
+                            value={distributor.notes}
                             onChange={handleNotesChange}
                         />
                     </div>

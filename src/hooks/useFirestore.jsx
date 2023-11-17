@@ -1,24 +1,22 @@
 import { useReducer, useEffect, useState } from "react";
-import { collection, addDoc, deleteDoc, doc} from "firebase/firestore"
+import { collection, addDoc, doc, updateDoc, arrayUnion} from "firebase/firestore"
 // import { async } from "@firebase/util";
 import { db } from "../config/firebase";
 
 let initialState = {
     document: null,
-    notes: null,
-    isPending: false,
     error: null,
     success: null
 }
 
 const firestoreReducer = (state, action) => {
     switch (action.type) {
-        case 'IS_PENDING':
-            return {...state, isPending: true, document: null, success: false, error: null}
         case 'ADDED_DOCUMENT':  
-            return {...state, isPending:false, document: action.payload, success: true, error: null}
+            return {...state, document: action.payload, success: true, error: null}
+        case 'EDITED_NOTES': 
+            return {...state, notes: action.payload}
         case 'ERROR': 
-            return {...state, isPending: false, error: action.payload}
+            return {...state, error: action.payload}
         default:
             return state
     }
@@ -31,7 +29,6 @@ export const useFirestore = (collectionType) => {
 
     //add a document
     const addDocument = async (doc) => {
-        dispatch({ type: 'IS_PENDING'})
 
         try {
             const addedDocument = await addDoc(ref, doc)
@@ -42,19 +39,18 @@ export const useFirestore = (collectionType) => {
         }
     }
 
-    
-    // const deleteDocument = async(id) => {
-         
-    //      dispatch({type: 'IS_PENDING'})
+    const editNotes = async(notes, id) => {
+        const docRef = doc(db, 'transaction', id)
 
-    //      try{
-    //         await deleteDoc(doc(db, collectionType, id))
-    //         dispatch({type: 'DELETED_DOCUMENT' })
-    //      }
-    //      catch(error){
-    //         dispatch({type: 'ERROR', payload: 'Could not delete document'})
-    //      }
-    // }
+        try {
+            await updateDoc(docRef, {
+            notes: arrayUnion(notes)})
+            
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
 
-    return { response, addDocument}
+    return { response, addDocument, editNotes}
 }

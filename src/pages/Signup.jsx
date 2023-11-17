@@ -10,7 +10,7 @@ const Signup = () => {
     })
     const email = credentials.email
     const password = credentials.password
-    const {signup, isPending, error} = useSignup()
+    const {signup, error} = useSignup()
 
 
     const handleFormChange = (e) => {
@@ -54,7 +54,7 @@ const Signup = () => {
                             value={credentials.password}
                             onChange={handleFormChange}
                             />
-                        <button>{isPending ? 'Loading' : 'Create Account'}</button>
+                        <button>Create Account</button>
                         {<p>{error}</p>}
                 </form>
            </div>
