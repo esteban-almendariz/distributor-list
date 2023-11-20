@@ -45,40 +45,6 @@ const Home = () => {
                   <span>Distributor</span>
                   <span>Contact</span>
                 </div>
-                
-                 
-                  {/* <details className="accordian-container">
-                    <summary className="accordian">
-                        <span>4581</span>
-                        <span>IBS Miami & Florida Keys</span>
-                        <span>888-888-8888</span>
-                    </summary>
-                    <div className="textarea-container">
-                        <textarea 
-                            placeholder="Add Notes"
-                        />
-                    </div>
-                    
-                  </details>
-
-                  <details className="accordian-container">
-                    <summary className="accordian">
-                        <span>4581</span>
-                        <span>IBS Miami & Florida Keys</span>
-                        <span>888-888-8888
-                            <div className='dist-edit-container'>
-                                <img  src="../../../public/pen-to-square.svg" alt="" />
-                                <img  className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
-                            </div>
-                        </span>
-                    </summary>
-                    <div className="textarea-container">
-                        <textarea 
-
-                        />
-                    </div>
-                  </details> */}
-                
               </div>
         </div>
         {error && <p>{error}</p>}
