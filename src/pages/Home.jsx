@@ -28,13 +28,15 @@ const Home = () => {
             displaySearch={displaySearch}
         />
         {filteredDist && (
-            <div className='searched-customer-detail'>
-                <span>{filteredDist[0].distNumber}</span>
-                <span>{filteredDist[0].distName}</span>
-                <span>{filteredDist[0].distPhoneNumber}
-                    <span className="close-search" onClick={handleCloseSearch}>X</span>
-                    
-                </span>
+            <div className="searched-container">
+                <div className='searched-customer-detail'>
+                    <span>{filteredDist[0].distNumber}</span>
+                    <span>{filteredDist[0].distName}</span>
+                    <span>{filteredDist[0].distPhoneNumber}
+                        <span className="close-search" onClick={handleCloseSearch}>X</span>
+                    </span>
+                </div>
+                <p className="searched-notes-container">{filteredDist[0].notes}</p>
             </div>
         )}
         <div className='logged-in-view'>

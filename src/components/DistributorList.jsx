@@ -1,4 +1,4 @@
-import { useFirestore } from '../hooks/useFirestore'
+// import { useFirestore } from '../hooks/useFirestore'
 import { useState, useEffect } from 'react'
 import { deleteDoc, doc, query, orderBy, collection, arrayUnion, updateDoc, onSnapshot, setDoc } from 'firebase/firestore'
 import { db } from '../config/firebase'
@@ -14,12 +14,6 @@ const DistributorList = ({ distributors }) => {
 
     
     const updateNoteChange = async(e,id) => {
-        // above parameters i had (index, e)
-        // const newNotes = [...notes]
-        // newNotes[index].notes = e.target.value
-        // setNotes(newNotes)
-
-        // console.log(notes[index])
         const docRef = doc(db, 'transaction', id)
         await setDoc(docRef, {notes: e.target.value}, {merge: true})
     }
@@ -67,16 +61,12 @@ const DistributorList = ({ distributors }) => {
                             placeholder='Add notes... IP address...'
                             value={distributor.notes}
                             key={index}
-                            // onChange={(e) =>handleNotesChange(index, e)}
                             onChange={(e) => updateNoteChange(e, distributor.id)}
                         />
                     </div>
         </details>
     
-))
-
-
-
+    ))
     return (
          <div>
             {listDistributors}

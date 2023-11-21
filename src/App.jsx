@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useAuthContext } from './hooks/useAuthContext'
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
-import Auth from './components/auth'
-import Nav from './components/Navbar'
-import AddNewCust from './components/AddNewCustomer';
 import { collection, addDoc } from "firebase/firestore"; 
 import './App.css'
 
