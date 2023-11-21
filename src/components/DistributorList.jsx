@@ -2,9 +2,8 @@
 import { useState, useEffect } from 'react'
 import { deleteDoc, doc, query, orderBy, collection, arrayUnion, updateDoc, onSnapshot, setDoc } from 'firebase/firestore'
 import { db } from '../config/firebase'
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './DistributorList.css'
-import { async } from '@firebase/util'
+
 
 
 const DistributorList = ({ distributors }) => {
@@ -51,8 +50,8 @@ const DistributorList = ({ distributors }) => {
                         <span>{distributor.distName}</span>
                         <span>{distributor.distPhoneNumber}
                             <div className='dist-edit-container'>
-                                <img onClick={() => editClickHandle(distributor.id, distributor.notes)} src="../../../public/pen-to-square.svg" alt="" />
-                                <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../public/trash-can.svg'></img> 
+                                <img onClick={() => editClickHandle(distributor.id, distributor.notes)} src="../../../pen-to-square.svg" alt="" />
+                                <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../trash-can.svg'></img> 
                             </div>
                         </span>
                     </summary>
