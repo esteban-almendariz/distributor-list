@@ -62,7 +62,6 @@
 
 .accordian:hover {
     background-color: #e7d5ff;
-    transition: background-color 80ms linear;
 }
 
 .textarea-container {

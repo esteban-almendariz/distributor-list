@@ -56,25 +56,30 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
         setSearchDist(e.target.value)
     }
 
-    const handleClickSearch = (distNumber) => {
+    const handleClickSearch = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
         displaySearch(searchDist)
         setSearchDist('')
     }
 
     return( 
             <div>
-                <div className='search-container'>
-                    <label> Search
-                            <input 
-                                type="text" 
-                                placeholder='Distributor #' 
-                                value={searchDist}
-                                name='searchDist'
-                                onChange={handleChangeSearchDist}
-                            />
-                    </label>
-                    <button onClick={handleClickSearch}>Search</button>
-                </div>
+                <form>
+                        <div className='search-container'>
+                        <label> Search
+                                <input 
+                                    type="text" 
+                                    placeholder='Distributor #' 
+                                    value={searchDist}
+                                    name='searchDist'
+                                    onChange={handleChangeSearchDist}
+                                />
+                        </label>
+                        <button onClick={(e) => handleClickSearch(e)}>Search</button>
+                    </div>
+                </form>
+                
                 <form onSubmit={handleSubmit} className='new-cust-container'>
                     
                     
