@@ -5,7 +5,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../config/firebase'
 import './AddNewCustomer.css'
 
-const AddNewCustomer = ({ uid, displaySearch }) => { 
+const AddNewCustomer = ({ uid, displaySearch, searchError }) => { 
     const [newCustomer, setNewCustomer] = useState({
         distNumber: '',
         distName: '',
@@ -58,26 +58,31 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
 
     const handleClickSearch = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
         displaySearch(searchDist)
         setSearchDist('')
     }
 
     return( 
             <div>
-                <form>
+                <form onSubmit={(e) => handleClickSearch(e)}>
                         <div className='search-container'>
-                        <label> Search
+                            <div className='search-div'>
+                            <label> Search
                                 <input 
                                     type="text" 
                                     placeholder='Distributor #' 
                                     value={searchDist}
                                     name='searchDist'
                                     onChange={handleChangeSearchDist}
+                                    required
                                 />
-                        </label>
-                        <button onClick={(e) => handleClickSearch(e)}>Search</button>
-                    </div>
+                            </label>
+                            <button>Search</button> 
+                            </div>
+                            {searchError && <p className='search-error'>{searchError}</p>}
+                        </div>
+                        
+                    
                 </form>
                 
                 <form onSubmit={handleSubmit} className='new-cust-container'>
@@ -106,7 +111,9 @@ const AddNewCustomer = ({ uid, displaySearch }) => {
                     <label> Contact 
                             <input 
                                 type="text" 
-                                placeholder='Phone #' 
+                                minLength='12'
+                                maxLength='12'
+                                placeholder='Example: 123-222-3333' 
                                 value={newCustomer.distPhoneNumber}
                                 onChange={handleFormChange}
                                 name='distPhoneNumber'

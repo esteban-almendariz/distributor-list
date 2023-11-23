@@ -40,6 +40,10 @@ button:hover {
   border-bottom: 2px solid #d0cbda;
 }
 
+.links {
+  text-decoration: none;
+}
+
 .logo {
   font-weight: bolder;
   letter-spacing: 2px;

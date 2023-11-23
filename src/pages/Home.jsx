@@ -9,10 +9,16 @@ const Home = () => {
     const { user } = useAuthContext()
     const { documents, error} = useCollection('transaction')
     const [filteredDist, setFilteredDist] = useState('')
+    const [searchError, setSearchError] = useState('')
 
     const displaySearch = (distNumber) => {
         const filterDist = documents.filter(dist => dist.distNumber === distNumber)
-        setFilteredDist(filterDist)
+        if(filterDist.length === 0) {
+            setSearchError('Distributor number does not exist.')
+        } else {
+            setFilteredDist(filterDist)
+            setSearchError('')
+        }
     }
 
     const handleCloseSearch = () => {
@@ -20,12 +26,13 @@ const Home = () => {
         setFilteredDist('')
     }
 
-    console.log('filteredDist',filteredDist)
+    
     return (
         <>
         <AddNewCustomer 
             uid={user.uid}
             displaySearch={displaySearch}
+            searchError={searchError}
         />
         {filteredDist && (
             <div className="searched-container">

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
 import './Login.css'
@@ -30,10 +31,10 @@ const Login = () => {
                     onChange={(e) => { setPassword(e.target.value)}}
                     placeholder="Password"    
                 />
-                <p>Forgot Password?</p>
+                {/* <p>Forgot Password?</p> */}
                 <button className="login-button">Login</button>
                 {error && <p>{error}</p>}
-                <p>Don't have an account? SIGNUP</p>
+                <Link className="links" to='/signup'><p>Don't have an account? SIGNUP</p></Link>
                 </form>
             </div>
         </div>
