@@ -1,11 +1,5 @@
 .form-container {
     margin: 100px auto;
-    display: flex;
-    align-items: center;
-    /* background-color: #7e39ff;
-    width: 850px;
-    height: 570px;
-    border-radius: 10px; */
 }
 .login-form {
     margin: auto;
@@ -21,7 +15,12 @@
     height: 520px;
 }
 
-.login-form button {
+
+.login-button {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
     width: 250px;
     padding: 8px;
     background-color: #7e39ff;
@@ -32,6 +31,22 @@
     background-color: white;
     color: black;
     border: 2px solid #7e39ff;
+}
+
+.login-test-btn {
+    width: 250px;
+    padding: 8px;
+    background-color: #cbb1fa;
+    color: black;
+    border: 1px solid black;
+}
+
+.login-test-btn:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #7e39ff;
+    width: 250px;
+    padding: 8px;
 }
 
 .login-form p {

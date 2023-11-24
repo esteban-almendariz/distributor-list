@@ -104,3 +104,40 @@ button:hover {
   position: relative;
 }
 
+@media (width <= 400px) {
+  body {
+    font-size: 16px;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .search-container input {
+    margin-bottom: 20px;
+  }
+  .search-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  .new-cust-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .accordian {
+    padding-top:45px;
+    padding-bottom: 45px;
+  }
+  .dist-edit-container {
+    position: absolute;
+    top: 80px;
+    right: 170px;
+  }
+}

@@ -54,7 +54,7 @@ const Signup = () => {
                             value={credentials.password}
                             onChange={handleFormChange}
                             />
-                        <button>Create Account</button>
+                        <button className="signup-button">Create Account</button>
                         {<p>{error}</p>}
                 </form>
            </div>

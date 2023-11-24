@@ -54,6 +54,7 @@ const DistributorList = ({ distributors }) => {
                                 <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../trash-can.svg'></img> 
                             </div>
                         </span>
+                        
                     </summary>
                     <div className="textarea-container">
                         <textarea onClick={() => editClick(distributor.id)}
