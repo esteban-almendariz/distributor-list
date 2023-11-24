@@ -104,7 +104,7 @@ button:hover {
   position: relative;
 }
 
-@media (width <= 400px) {
+@media screen and (width <= 400px) {
   body {
     font-size: 16px;
   }
@@ -138,6 +138,6 @@ button:hover {
   .dist-edit-container {
     position: absolute;
     top: 80px;
-    right: 170px;
+    right: 160px;
   }
 }
