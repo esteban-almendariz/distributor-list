@@ -1,4 +1,4 @@
-// import { useFirestore } from '../hooks/useFirestore'
+
 import { useState, useEffect } from 'react'
 import { deleteDoc, doc, query, orderBy, collection, arrayUnion, updateDoc, onSnapshot, setDoc } from 'firebase/firestore'
 import { db } from '../config/firebase'

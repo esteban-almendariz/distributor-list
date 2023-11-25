@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-// import { useFirestore } from '../hooks/useFirestore'
+
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../config/firebase'
 import './AddNewCustomer.css'
@@ -14,9 +14,6 @@ const AddNewCustomer = ({ uid, displaySearch, searchError }) => {
         uid: uid
     })
     const [searchDist, setSearchDist] = useState('')
-
-    // const { addDocument, response } = useFirestore('transaction')
-    
 
     //add a document
     const addDocument = async (doc) => {
@@ -40,7 +37,6 @@ const AddNewCustomer = ({ uid, displaySearch, searchError }) => {
                         uid: uid
                     })
     } 
-
 
     const handleFormChange = (e) => {
         const { name, value} = e.target
@@ -81,12 +77,9 @@ const AddNewCustomer = ({ uid, displaySearch, searchError }) => {
                             </div>
                             {searchError && <p className='search-error'>{searchError}</p>}
                         </div>
-                        
-                    
                 </form>
                 
                 <form onSubmit={handleSubmit} className='new-cust-container'>
-                    
                     
                     <label> Distributor # 
                             <input 
