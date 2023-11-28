@@ -76,23 +76,8 @@ button:hover {
   color: white;
 }
 
-.dist-title {
-  text-align: center;
-  font-weight: bold;
-}
 
-.list-title {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-align: center;
-  background-color: rgb(9,138,0);
-  background-color: #7e39ff;
-  color: white;
-  padding: 10px;
-  font-size: 1.3rem;
-}
-
-.customer-detail {
+/* .customer-detail {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
@@ -102,7 +87,7 @@ button:hover {
   margin-bottom: 20px;
   border-bottom: 1px solid #d0cbda;
   position: relative;
-}
+} */
 
 @media (width <= 1000px) {
   body {
@@ -135,12 +120,42 @@ button:hover {
     padding-top:45px;
     padding-bottom: 45px;
   }
+  .login-form {
+    width: 300px;
+  }
+  .dist-edit-container {
+    position: absolute;
+    top: 80px;
+    right: 160px;   
+  }
 }
 
-@media screen and (width <= 400px) {
+@media (width <= 400px) {
+  .accordian {
+    
+  }
+  .dist-edit-container {
+    position: absolute;
+    top: 80px;
+    right: 160px;   
+  }
+  .navbar ul {
+    max-width: 500px;
+  }
+  .navbar-link {
+    padding: 6px 4px;
+  }
+  .navbar a {
+    margin-left: 0;
+    padding: 6px 10px;
+  }
+}
+
+
+/* @media screen and (width <= 400px) {
   .dist-edit-container {
     position: absolute;
     top: 80px;
     right: 160px;
   }
-}
+} */

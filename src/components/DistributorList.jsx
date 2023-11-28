@@ -51,7 +51,7 @@ const DistributorList = ({ distributors }) => {
                         <span>{distributor.distPhoneNumber}
                             <div className='dist-edit-container'>
                                 {/* <img onClick={() => editClickHandle(distributor.id, distributor.notes)} src="../../../pen-to-square.svg" alt="" /> */}
-                                <img onClick={() => deleteDocu(distributor.id)} className={'trashcan-icon'} src='../../../trash-can.svg'></img> 
+                                <img onClick={() => deleteDocu(distributor.id)} className='trashcan-icon' src='../../../trash-can.svg'></img> 
                             </div>
                         </span>
                         

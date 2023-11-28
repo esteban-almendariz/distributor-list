@@ -1,8 +1,9 @@
 .dist-edit-container {
-    display: inline;
+    /* display: inline;
     position: absolute;
     right: 60px;
-    bottom: 27px;
+    bottom: 27px; */
+    
 }
 
 .dist-edit-container img {
