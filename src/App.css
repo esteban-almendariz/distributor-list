@@ -131,8 +131,11 @@ button:hover {
 }
 
 @media (width <= 400px) {
-  .accordian {
-    
+  details summary::-webkit-details-marker {
+    display:none;
+  }
+  h1 {
+    font-size: 1.8rem;
   }
   .dist-edit-container {
     position: absolute;
@@ -148,6 +151,9 @@ button:hover {
   .navbar a {
     margin-left: 0;
     padding: 6px 10px;
+  }
+  .list-title {
+    font-size: 1.1rem;
   }
 }
 
