@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthContext } from './context/AuthContext'
 import { useAuthContext } from './hooks/useAuthContext'
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Home from './pages/Home'
@@ -16,22 +17,26 @@ function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const { authIsReady, user} = useAuthContext()
 
- 
+  const context = useContext(AuthContext)
 
-  const handleUserLoggedIn = () => setIsUserLoggedIn(prevState => !prevState)
+  console.log('from App testing', context)
+  console.log('from App testing', context.authIsReady)
 
-  const addCustomer = async() => {
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
+
+  // const handleUserLoggedIn = () => setIsUserLoggedIn(prevState => !prevState)
+
+  // const addCustomer = async() => {
+  //   try {
+  //     const docRef = await addDoc(collection(db, "users"), {
+  //       first: "Ada",
+  //       last: "Lovelace",
+  //       born: 1815
+  //     });
+  //     console.log("Document written with ID: ", docRef.id);
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+  // }
 
   return (
     <>
