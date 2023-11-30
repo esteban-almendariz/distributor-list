@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
+import { googleProvider, auth } from "../config/firebase"
+import { signInWithPopup, signInWithRedirect } from "firebase/auth"
 import './Login.css'
 
 const Login = () => {
@@ -14,6 +16,14 @@ const Login = () => {
         e.preventDefault()
         login(email, password)
     }
+
+    const authSignInWithGoogle = async() => {
+        try {
+            await signInWithPopup(auth, googleProvider)
+            
+        } catch(error) {
+            console.log(error.message)
+      }}
 
     const testProject = (e) => {
         e.preventDefault()
@@ -42,6 +52,7 @@ const Login = () => {
                     <button className="login-test-btn" type="button" onClick={(e) => testProject(e)} >Test Project</button>
                     {showTestCred && <p>Login: test@gmail.com Password: Testproject12</p>}
                     {error && <p>{error}</p>}
+                    <button type="button" onClick={authSignInWithGoogle}>Google Sign In</button>
                     <Link className="links" to='/signup'><p>Don't have an account? SIGNUP</p></Link>
                 </form>
             </div>
