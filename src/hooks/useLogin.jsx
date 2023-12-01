@@ -3,9 +3,9 @@ import { auth } from "../config/firebase";
 import { createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
     signInWithPopup, 
-    signOut,
     onAuthStateChanged
    } from "firebase/auth"
+import { googleProvider } from "../config/firebase";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
@@ -29,8 +29,17 @@ export const useLogin = () => {
         }
     }
 
+    const authSignInWithGoogle = async() => {
+        try {
+            await signInWithPopup(auth, googleProvider)
+            dispatch({type: 'LOGIN', payload: auth.currentUser})
+            setError(null)
+        } catch(error) {
+            console.log(error.message)
+      }}
 
 
 
-    return { login, error}
+
+    return { login, authSignInWithGoogle, error}
 }
