@@ -1,8 +1,6 @@
-# React + Vite
+- Distributor List
+- Created in React.js , Javascript , and Firebase
+- Live Project - https://distributor-list.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#About:
+A React.js project that interacts with Firebase created for our IT Analyst team. Enabling team members to create, add, remove, and search customer details effortlessly. The application also includes a note-taking feature, allowing users to add information for each customer. The primary focus of the project is to provide a simple interface for quick retrieval of customer information while at the same time helping our customers.
